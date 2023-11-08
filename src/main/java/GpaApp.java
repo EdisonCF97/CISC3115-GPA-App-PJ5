@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GpaApp {
@@ -38,8 +39,12 @@ public class GpaApp {
                         }
                         break;
                     case 4:
-                        student.save(dataFile);
-                        System.out.println("Data saved successfully.");
+                        try {
+                            student.save(dataFile);
+                            System.out.println("Data saved successfully.");
+                        } catch (IOException e) {
+                            System.out.println("Error saving data: " + e.getMessage());
+                        }
                         break;
                     case 0:
                         System.out.println("Exiting...");
