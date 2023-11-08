@@ -62,22 +62,9 @@ public class GpaApp {
         }
     }
 
-   /*  public static Student initializeStudent(String dataFile) throws FileNotFoundException {
+    public static Student initializeStudent(String dataFile) throws FileNotFoundException {
         return new Student(dataFile);
     }
-*/
-    public static Student initializeStudent(String dataFile) {
-        try {
-            return new Student(dataFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Data file not found. Initializing student with no courses.");
-            return new Student(); 
-        } catch (InvalidDataFileException e) {
-            System.out.println("Invalid data file. Initializing student with no courses.");
-            return new Student(); 
-        }
-    }
-    
 
     public static void displayMenu() {
         System.out.println("1. Add Course");
