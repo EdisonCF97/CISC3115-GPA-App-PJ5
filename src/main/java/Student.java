@@ -17,15 +17,19 @@ public class Student {
                 if (fields.length != 2) {
                     throw new InvalidDataFileException("Invalid data format in file: " + dataFile);
                 }
-                int credits = Integer.parseInt(fields[0]);
-                String grade = fields[1];
-                Course course = new Course(credits, grade);
-                courses.add(course);
+                try {
+                    int credits = Integer.parseInt(fields[0]);
+                    String grade = fields[1];
+                    Course course = new Course(credits, grade);
+                    courses.add(course);
+                } catch (NumberFormatException e) {
+                    throw new InvalidDataFileException("Invalid data format in file: " + dataFile);
+                } catch (IllegalArgumentException e) {
+                    throw new InvalidDataFileException("Invalid data format in file: " + dataFile);
+                }
             }
         } catch (IOException e) {
             throw new InvalidDataFileException("Error reading file: " + dataFile);
-        } catch (NumberFormatException | IllegalArgumentException e) {
-            throw new InvalidDataFileException("Invalid data format in file: " + dataFile);
         }
     }
 
