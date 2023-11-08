@@ -66,7 +66,7 @@ public class GpaApp {
         return new Student(dataFile);
     }
 */
-    public static Student initializeStudent(String dataFile) throws FileNotFoundException {
+    public static Student initializeStudent(String dataFile) {
         try {
             return new Student(dataFile);
         } catch (FileNotFoundException e) {
